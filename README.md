@@ -8,6 +8,6 @@ You can run the notebook `train.ipynb` for training the model. You need to speci
 Link for dataset and model: https://drive.google.com/drive/folders/1m1BUic3ay83nhl_FsU3zmPTUxfaXtCpm?usp=sharing
 ```
 
-You need to download the dataset, unzip and place it into your local system. The datset is divided into test and train with their respective annotatations in COCO format. I have already trained one model named 'model.pth' for maskrcnn_resnet_101. You can also used that directly in test.py. 
+You need to download the dataset, unzip and place it into your local system. The datset is divided into test and train with their respective annotatations in COCO format. I have already trained one model named 'model.pth' for maskrcnn_resnet_101. You can also used that directly in test.py. This also contains the results inferenced on our trained model.
 
 Before testing, please install all the library in `requirements.txt`
