@@ -2,3 +2,4 @@ Flask
 Pillow
 matplotlib
 opencv-python
+trimesh

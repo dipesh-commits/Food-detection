@@ -1,12 +1,72 @@
 <html>
     <head>
-        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title></title> 
     </head>
     <body>
+        <div class="container">
+            <h2><strong> Food calorie estimation</strong></h2>
+            <br>
         <form method="POST" action="" enctype="multipart/form-data">
-            <input type="file" name="file" />
-            <input type="submit" value="Submit" />
-            <img src="data:image/jpeg;base64,{{ img_data }}" width="500px" height="500px" id="img-upload" alt="img_data" class="img-upload"/>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Upload an image</label>
+                <input type="file" name="file" class="form-control-file" id="exampleFormControlInput1" placeholder="Upload an image">
+                <br>
+                <input type="submit" value="Upload" class="form-control-file" >
+              </div>
+            
+            <!-- <img src="data:image/jpeg;base64,{{ img_data }}" width="500px" height="500px" id="img-upload" alt="img_data" class="img-upload"/> -->
         </form>
+    </div>
+
+        <!-- <div class="row">
+            <div class="col-sm">
+                    <img src="data:image/jpeg;base64,{{ img_data }}" alt="data:image/jpeg;base64,{{ img_data }}" width="500px" height="500px">
+                    <p class="card-text">Original Image</p>
+            </div>
+            <div class="col-sm">
+                    <img src="static/{{ segmented }}" alt="static/{{segmented}}" width="500px" height="500px">
+                    <p class="card-text">Segmented Image</p>
+            </div>
+        
+            <div class="col-sm">
+                    <img src="static/{{ detected }}" alt="static/{{segmented}}" width="500px" height="500px">
+                    <p class="card-text">Detected Image</p>
+            </div>
+        </div> -->
+
+        <section class="part2">
+            <div class="container">
+                <h2>2D Segmentation and Detection Results</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                    <img alt="" class="resize-image center-block" id="image1" src="data:image/jpeg;base64,{{ img_data }}" width="300px" height="300px"/>&nbsp;
+                    <h4 class="text-center">Original Image</h4></div>
+                    <div class="col-md-4">
+                    <img alt="" class="resize-image center-block" id="image2" src="static/{{ segmented }}" width="300px" height="300px" />&nbsp;
+                    <h4 class="text-center">Segmented Mask</h4></div>
+                    <div class="col-md-4">
+                    <img alt="" class="resize-image center-block" id="image3" src="static/{{ detected }}" width="300px" height="300px"/>&nbsp;
+
+                    {% if results %}
+                    <h4 class="text-center">Output detected</h4>
+                    <p class="text-center"><strong>Predicted Class:</strong> {{results.get("output").get("class")}}</p>
+                    <p class="text-center"><strong>Confidence:</strong> {{results.get("output").get("confidence")}}</p>
+                    {% endif %}
+                    </div>
+                    
+                </div>
+            </div>
+    </section>
+    
     </body>
 </html>
